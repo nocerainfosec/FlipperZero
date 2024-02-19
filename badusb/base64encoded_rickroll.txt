@@ -1,0 +1,29 @@
+REM Title: RickRoll Firefox
+REM Author: Nocera Infosec
+REM Target: Tested on Debian Linux OS
+REM Version: 1.0
+REM Category: RickRoll Firefox
+REM Opens RickRoll video on firefox and youtube full screen and sets volume to maximum
+REM Use Base64 Encoding to avoid keyboard layout issues
+
+DELAY 1000
+ALT T
+DELAY 500
+STRING echo PGh0bWw+PGhlYWQ+PG1ldGEgY2hhcnNldD0iVVRGLTgiPjxtZXRhIGh0dHAtZXF1aXY9InJlZnJlc2giIGNvbnRlbnQ9IjA7dXJsPWh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ZFF3NHc5V2dYY1EiPjx0aXRsZT5VcHRhZGluZyBMaWJyYXJpZXMsIFBsZWFzZSB3YWl0Li4uPC90aXRsZT48L2hlYWQ+PGJvZHk+PC9ib2R5PjwvaHRtbD4= > update.html
+ENTER
+DELAY 500
+STRING base64 -d -i update.html > update2.html
+ENTER
+DELAY 500
+STRING amixer set Master unmute
+ENTER
+DELAY 500
+STRING amixer set Master 100%
+ENTER
+DELAY 500
+STRING firefox --kiosk update2.html
+ENTER
+DELAY 3000
+SPACE
+DELAY 3000
+STRING f
